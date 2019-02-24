@@ -8,6 +8,7 @@
 #define LEN 1000  /* max length of each string */
 
 
+/*
 int my_compare_strings(char string1[], char string2[]) {
     int ret = 0; //value to place result into
     int until; //value to place length of shorter string
@@ -39,12 +40,12 @@ int my_compare_strings(char string1[], char string2[]) {
 void my_swap_strings(char string1[], char string2[]) {
     char temp = ' ';    // char variable used in swapping one character at a time
 
-    /* Write code here to swap the contents of string1 and string2, one
-      character at a time, WITHOUT USING ANY C STRING LIBRARY FUNCTIONS. 
-
-      The max length of the strings is LEN, though they may be shorter, so look
-      for the string terminators.
-    */
+    // Write code here to swap the contents of string1 and string2, one
+    //  character at a time, WITHOUT USING ANY C STRING LIBRARY FUNCTIONS. 
+    //
+    //  The max length of the strings is LEN, though they may be shorter, so look
+    //  for the string terminators.
+    //
 
     for (int i = 0; i < LEN; i++) {
         temp = string1[i];
@@ -52,7 +53,7 @@ void my_swap_strings(char string1[], char string2[]) {
         string2[i] = temp;
     }
 }
-
+*/
 
 int main()
 {
@@ -90,8 +91,13 @@ int main()
     while (!sorted) {
         sorted = 1;
         for (int i = 0; i < NUM-1; i++) {
-            if (my_compare_strings(Strings[i], Strings[i+1]) == 1) {
-                my_swap_strings(Strings[i], Strings[i+1]);
+            if (strcmp(Strings[i], Strings[i+1]) > 0) {
+                
+                char tempstring[LEN];
+                strcpy(tempstring, Strings[i]);
+                strcpy(Strings[i], Strings[i+1]);
+                strcpy(Strings[i+1], tempstring);
+
                 sorted = 0;
             }
         }
